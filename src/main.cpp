@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
     int rows, columns;
     char alive_char;
 
-    TIP reader{ ".config/glife.ini" };
+    TIP reader{ "config/glife.ini" };
  
     // Check for any parser error.
     if (not reader.parsing_ok()) {
