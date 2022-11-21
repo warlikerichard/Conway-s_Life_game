@@ -62,13 +62,14 @@ Os parâmetros de configuração são divididos entre 3 seções - Seção livre
 </li>
 
 </ul>
+Para melhor entender como funciona esse arquivo, dê uma olhada no arquivo localizado na pasta .config. <br></br>
 
 Na pasta <b>data</b> você encontrará várias configurações prontas que representam a primeira geração do tabuleiro. São esses os arquivos que você pode adicionar como parâmetro no <b>input_cfg</b> em <b>glife.ini</b>. Você também pode criar seus próprios arquivos, bastando seguir o mesmo padrão dos arquivos .dat dados.
 
 Depois de escolher as configurações, basta executar ./build/glife [caminho para arquivo de configuração.ini] na pasta raiz. O segundo parâmetro é opcional, mas você deve especificá-lo caso não tenha um arquivo chamado glife.ini em uma pasta .config.
 
 ### English
-In the folder <b>config</b> you will find a file. In it, there will be all the necessary configurations for the program to work. you can save the configuration in another folder, but for that, you must specify the directory in which the config file is when running the program - more details ahead.
+In the folder <b>.config</b> you will find a file. In it, there will be all the necessary configurations for the program to work. you can save the configuration in another folder, but for that, you must specify the directory in which the config file is when running the program - more details ahead.
 The configuration parameters are divided in 3 sections - Free section; [Image]; [Text]:
 <ul>
 <li>
@@ -128,6 +129,7 @@ The configuration parameters are divided in 3 sections - Free section; [Image]; 
 </li>
 
 </ul>
+To better understand how this file works, take a look at the file located in the .config folder.<br></br>
 
 In the folder <b>data</b> you'll finde many ready configurations that represent the first generation of the board. these are the .dat files you must add as parameter in <b>input_cfg</b> at <b>glife.ini</b>. You can also create your own .dat files, you just have to follow the pattern of the given .dat files.
 
