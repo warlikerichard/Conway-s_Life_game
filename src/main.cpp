@@ -35,13 +35,14 @@ int main(int argc, char* argv[])
 {
     int rows, columns;
     char alive_char;
+    std::string config_path = argc == 1 ? ".config/glife.ini" : argv[1];
 
-    TIP reader{ ".config/glife.ini" };
+    TIP reader{ config_path };
  
     // Check for any parser error.
     if (not reader.parsing_ok()) {
         std::cerr << ">> Sorry, parser failed with message: " << reader.parser_error_msg() << "\n";
-        return 1;
+        return EXIT_FAILURE;
     }
 
     auto fps = reader.get_int("text", "fps"); // Tries to get info of how much fps the app will run.
@@ -52,9 +53,27 @@ int main(int argc, char* argv[])
     auto alive_color = reader.get_str("image", "alive"); // Tries to get color of alive cell.
     auto block_size = reader.get_int("image", "block_size"); // Tries to get the block size.
     auto path = reader.get_str("image", "path"); // Tries to get the path in which the image will be saved.
+    bool unstoppable = max_gen == 0; // Verifies if a max_gen exists.
 
     std::transform(bk_color.begin(), bk_color.end(), bk_color.begin(), ::tolower);
     std::transform(alive_color.begin(), alive_color.end(), alive_color.begin(), ::tolower);
+
+    // Verifies if there's a risk of overcharging disk.
+    if(create_img and unstoppable) {
+        std::cout << "\033[1;31mWARNING: \033[0m Risk of generating too many images and overchargin hard disk.\n"
+        << "Do you want to continue? [S/n]: \n";
+        char answer;
+        std::cin >> answer;
+
+        if(answer == 'n' or answer == 'N'){
+            std::cout << "Process finished\n";
+            return EXIT_SUCCESS;
+        } 
+        else if(answer != 's' and answer != 'S'){
+            std::cout << "\033[1;31mError: \033[0mInvalid input.\n";
+            return EXIT_FAILURE;
+        }
+    }
 
     // Here we are reading the file representing the table's configuration, and saving
     // it's dimensions and values where the living cells are located.
@@ -94,8 +113,10 @@ int main(int argc, char* argv[])
 
         // Here starts the repetitions.
         int gen{1u};
+        if(unstoppable) max_gen = gen+1;
         if(create_img) std::cout << "Generating images...\n";
         while(not current_table.is_empty() and gen < max_gen+1){
+            if(unstoppable) max_gen++;
             if(not create_img){
                 std::cout << "Generation: " << gen << "\n";
                 current_table.print_life(alive_char);
@@ -106,13 +127,11 @@ int main(int argc, char* argv[])
                 std::string file_name = "gen " + std::to_string(gen);
                 current_table.set_life_canvas(block_size, life::color_pallet[bk_color], life::color_pallet[alive_color]);
                 current_table.save_img(path, file_name);
-            }
-                
-                life::LifeCfg new_table(current_table.get_next_gen(), rows, columns);
-                current_table = new_table;
+            }   
+                current_table = current_table.get_next_gen();
         
-                if(database.find(current_table.get_key())){
-                    std::cout << "Found match with generation " << database.get(current_table.get_key()) << "\n";
+                if(database.find(current_table.get_key()) and gen != max_gen){
+                    std::cout << "Generation " << gen+1 << " found match with generation " << database.get(current_table.get_key()) << "\n";
                     return EXIT_SUCCESS;
                 }
 
