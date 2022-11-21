@@ -2,7 +2,7 @@
 
 ## Português
 ### Como usar
-Na pasta <b>config</b> você encontrará um arquivo. Nele estarão todas as configurações necessárias para que o programa funcione. Você pode salvar a configuração em outra pasta, mas para isso, deve especificar o diretório em que esta está ao executar o programa - mais detalhes afrente.
+Na pasta <b>.config</b> você encontrará um arquivo. Nele estarão todas as configurações necessárias para que o programa funcione. Você pode salvar a configuração em outra pasta, mas para isso, deve especificar o diretório em que esta está ao executar o programa - mais detalhes afrente.
 Os parâmetros de configuração são divididos entre 3 seções - Seção livre; [Image]; [Text]:
 <ul>
 <li>
