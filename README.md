@@ -99,7 +99,7 @@ The configuration parameters are divided in 3 sections - Free section; [Image]; 
   <li>
     alive = [color of the alive cells] - The avaliable colors are: <br></br> BLACK; BLUE; CRIMSON; DARK_GREEN; DEEP_SKY_BLUE; DODGER_BLUE; GREEN; LIGHT_BLUE; LIGHT_GREY; LIGHT_YELLOW; RED; STEEL_BLUE; WHITE; YELLOW.
     
-    Exemplo: alive = GREEN
+    Example: alive = GREEN
   </li>
   <li>
     bkg = [collor of the dead cells / background color] - The avaliable colors are aforementioned.
