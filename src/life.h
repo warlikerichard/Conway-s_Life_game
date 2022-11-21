@@ -37,9 +37,6 @@ struct Cell{
     int row;
     int col;
     Cell(int r, int c) : row(r), col(c) {};
-    // bool operator==(Cell& other){
-    //     return (row == other.row) && (col == other.col);
-    // }
 };
 
 /// A life configuration.
@@ -67,20 +64,12 @@ class LifeCfg {
     void set_life_canvas(short block_size, Color bg_color, Color alive);
     /// Saves image of current life_canvas.
     bool save_img(std::string path, std::string file_name);
-    /* void set_alive(const std::vector<Location2>&);
-    void update(void);
-    std::string to_string(void) const;
-    bool operator==(const LifeCfg&) const;
-    LifeCfg& operator=(const LifeCfg& _rhs);
-    bool extinct(void) const;
-    size_type rows(void) const;
-    size_type cols(void) const; */
 
     /*============= OPERATORS =============*/
 
     /// Changes the current alive cells and updates the neighbours of each cell.
-    void operator=(std::vector<Cell> new_cells){
-        alive_cells = new_cells;
+    void operator=(std::vector<Cell> new_cells){    
+        *this = LifeCfg(new_cells, r_rows, r_cols);
     }
 
     private:
