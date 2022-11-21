@@ -135,7 +135,7 @@ To better understand how this file works, take a look at the file located in the
 
 In the folder <b>data</b> you'll finde many ready configurations that represent the first generation of the board. these are the .dat files you must add as parameter in <b>input_cfg</b> at <b>glife.ini</b>. You can also create your own .dat files, you just have to follow the pattern of the given .dat files.
 
-Depois de escolher as configurações, basta executar ./build/glife [path to configuration file.ini], in the root folder. The second parameter is optional, but you must specify it <b>if</b> you don't have a file named glife.ini in a .config folder.
+After choosing the configurations, you just have to run ./build/glife [path to configuration file.ini], in the root folder. The second parameter is optional, but you must specify it <b>if</b> you don't have a file named glife.ini in a .config folder.
 
 The current build only supports linux systems, but you can run the program in other systems. For that, you just have to run the following command before running the program: g++ -Wall -std=c++17 -pedantic src/main.cpp lib/tip.cpp src/life.cpp lib/canvas.cpp -I src -o build/glife.
 
