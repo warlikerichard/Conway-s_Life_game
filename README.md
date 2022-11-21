@@ -68,7 +68,7 @@ Na pasta <b>data</b> você encontrará várias configurações prontas que repre
 Depois de escolher as configurações, basta executar ./build/glife [caminho para arquivo de configuração.ini] na pasta raiz. O segundo parâmetro é opcional, mas você deve especificá-lo caso não tenha um arquivo chamado glife.ini em uma pasta .config.
 
 ### English
-In the folder <b>config</b> you will finde a file. In it, there will be all the necessary configurations for the program to work. you can save the configuration in another folder, but for that, you must specify the directory in which the config file is when running the program - more details ahead.
+In the folder <b>config</b> you will find a file. In it, there will be all the necessary configurations for the program to work. you can save the configuration in another folder, but for that, you must specify the directory in which the config file is when running the program - more details ahead.
 The configuration parameters are divided in 3 sections - Free section; [Image]; [Text]:
 <ul>
 <li>
