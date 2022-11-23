@@ -72,7 +72,8 @@ Depois de escolher as configurações, basta executar ./build/glife [caminho par
 
 A build atual suporta apenas sistemas linux, mas você pode rodar o programa em outros sistemas, bastando utilizar antes o comando g++ -Wall -std=c++17 -pedantic src/main.cpp lib/tip.cpp src/life.cpp lib/canvas.cpp -I src -o build/glife.
 
-### English
+## English
+### How to use
 In the folder <b>.config</b> you will find a file. In it, there will be all the necessary configurations for the program to work. you can save the configuration in another folder, but for that, you must specify the directory in which the config file is when running the program - more details ahead.
 The configuration parameters are divided in 3 sections - Free section; [Image]; [Text]:
 <ul>
