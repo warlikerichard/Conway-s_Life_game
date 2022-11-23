@@ -25,7 +25,7 @@ Os parâmetros de configuração são divididos entre 3 seções - Seção livre
   [Image] - Aqui você definirá como e se imagens serão geradas.
   <ul>
   <li>
-    generate_image = [true │ false] - true para gerar imagens, false para não gerar imagens
+    generate_image = [true │ false] - true para gerar imagens, false para não gerar imagens.
     
     exemplo: generate_image = true
   </li>
